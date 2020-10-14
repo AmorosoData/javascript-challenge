@@ -1,5 +1,5 @@
 // from data.js
-var tableData = data;
+let tableData = data;
 
 // YOUR CODE HERE!
 // Get a reference to the table body
@@ -12,44 +12,28 @@ data.forEach(sighting => console.log(sighting));
 
 // Step 2:  Use d3 to append one table row `tr` for each ufo report object
 data.forEach(sighting => {
-  console.log(sighting);
+//   console.log(sighting);
   let row = tbody.append("tr");
+  row.append("td").text(sighting.datetime);
+  row.append("td").text(sighting.city);
+  row.append("td").text(sighting.state);
+  row.append("td").text(sighting.country);
+  row.append("td").text(sighting.shape);
+  row.append("td").text(sighting.durationMinutes);
+  row.append("td").text(sighting.comments);
 });
 
-// Step 3:  Use `Object.entries` to console.log each ufo report value
-data.forEach(sighting => {
-  let row = tbody.append("tr");
-  console.log(Object.values(sighting))
-  console.log(Object.entries(sighting))
-});
 
-// Step 4: Use d3 to append 1 cell per ufo report value (datetime, city, state, country, shape, durationMinutes,comments)
-data.forEach(sighting => {
-  let row = tbody.append("tr");
-  Object.values(sighting).forEach(value => {
-    console.log(value);
-    // Append a cell to the row for each value
-    // in the ufo report object
-    let cell = row.append("td");
-  });
-});
+// Getting a reference to the button on the page with the id property set to `click-me`
+let button = d3.select("#click-me");
 
-// Step 5: Use d3 to update each cell's text with
-// ufo report values (datetime, city, state, country, shape, durationMinutes,comments)
-data.forEach(sighting => {
-  let row = tbody.append("tr");
-  Object.values(sighting).forEach(value => {
-    // Append a cell to the row for each value
-    // in the weather report object
-    var cell = row.append("td");
-    cell.text(value);
-  });
+// You can also define the click handler inline
+button.on("click", function() {
+// Select the input element and get the raw HTML node
+  let dateInput=d3.select('#date-filter');
+  // Get the value property of the input element
+  let dateValue = dateInput.property('value');
+  console.log(dateInput);
+  console.log()
+    
 });
-
-data.forEach((sighting) => {
-    let row = tbody.append("tr");
-    Object.values(sighting).forEach(value => {
-      let cell = row.append("td");
-      cell.text(value);
-    });
-  });
