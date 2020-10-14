@@ -1,3 +1,13 @@
 # javascript-challenge
 
-**DATA for Analysis**
+**DATA FOR ANALYSIS**
+
+The data that was provided has the following keys:
+
+- datetime
+- city
+- state
+- country
+- shape
+- durationMinutes
+- comments
