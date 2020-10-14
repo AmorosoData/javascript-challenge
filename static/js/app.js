@@ -33,7 +33,23 @@ button.on("click", function() {
   let dateInput=d3.select('#date-filter');
   // Get the value property of the input element
   let dateValue = dateInput.property('value');
-  console.log(dateInput);
-  console.log()
-    
+//   console.log(dateInput);
+
+let filteredData = tableData.filter(sighting =>sighting.datetime === dateValue)
+
+// remove any children from the list
+tbody.html("");
+
+// append sightings to the list
+filteredData.forEach(sighting => {
+//   console.log(sighting);
+    let row = tbody.append("tr");
+    row.append("td").text(sighting.datetime);
+    row.append("td").text(sighting.city);
+    row.append("td").text(sighting.state);
+    row.append("td").text(sighting.country);
+    row.append("td").text(sighting.shape);
+    row.append("td").text(sighting.durationMinutes);
+    row.append("td").text(sighting.comments);
+    });
 });
